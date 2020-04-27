@@ -1,0 +1,14 @@
+# Turn rewrite engine on
+Options +FollowSymlinks
+RewriteEngine on
+
+# map neat URL to internal URL
+RewriteBase /
+#RewriteRule ^mobile/list/$   RestController.php?view=all [nc,qsa]
+#RewriteRule ^mobile/list/([0-9]+)/$   RestController.php?view=single&id=$1 [nc,qsa]
+#RewriteRule ^hello ^/..helloworld.html [nc,qsa]
+RewriteRule ^/GetPostsFromLocation?lat=([0-9]+)&lon=([0-9]+)&rad=([0-9]+)$ GetPostsFromLocation.php?lat=$1&lon=$2&rad=$3
+RewriteRule /GetPosts/([0-9]+).html /GetPosts/foo$1.html
+
+# This works!
+ErrorDocument 404 /posts/new404.html
